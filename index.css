@@ -5,7 +5,7 @@ html, body {
 	min-width: 700px;
 }
 body {
-	background: #e3e3e3;
+	background: #fff;
 	abackground-image: url(img/bg.png);
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -123,10 +123,11 @@ header {
 	color: #fff;
 	text-align: center;
 	line-height: 30px;
-	background: #aaa;
+	background: #ddd;
 	aheight: 160px;
 	padding: 30px;
 	overflow: hidden;
+	margin-bottom: 12px;
 }
 .title {
 	height: 50px;
