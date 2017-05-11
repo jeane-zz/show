@@ -80,6 +80,7 @@ li::before {
 	z-index: 3;
 	opacity: 0;
 	transition: .5s linear;
+	pointer-events: none;
 }
 li::after {
 	content: "♡";
@@ -99,6 +100,7 @@ li::after {
 	z-index: 3;
 	opacity: 0;
 	transition: .5s linear;
+	pointer-events: none;
 }
 img {
 	width: 100%;
