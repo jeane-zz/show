@@ -18,7 +18,7 @@ function addRect() {
 	var b = parseInt(Math.random()* 255)
 	var color1 = `rgb(${r}, ${g}, ${b})`
 	console.log(color1)
-	var color2 = `rgba(${Math.abs(r-dt)}, ${g}, ${b}, 0.5)` 
+	var color2 = `rgba(${(r+dt)%255}, ${g}, ${b}, 0.5)` 
 	console.log(color2)
 	var x = parseInt(Math.random()* n)
 	var y = parseInt(Math.random()* n)
