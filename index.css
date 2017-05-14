@@ -124,11 +124,24 @@ header {
 	text-align: center;
 	line-height: 30px;
 	background: #ddd;
-	aheight: 160px;
-	padding: 30px;
+	background-image: url(cover/bg.jpg);
+	background-repeat: repeat-x;
+	background-size: 150% 150%;
+	padding: 50px;
 	overflow: hidden;
 	margin-bottom: 12px;
+	animation: bg 60s linear infinite alternate;
 }
+
+@keyframes bg {
+	from {
+		background-position: 0 50%;
+	}
+	to {
+		background-position: 100% 50%;
+	}
+}
+
 .title {
 	height: 50px;
 	padding: 10px 0;
