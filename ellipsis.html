@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ellipsis:文本溢出</title>
+  <style>
+  main {
+    width: 500px;
+    height: 600px;
+    background: #6ae;
+    padding: 30px 50px;
+    box-sizing:border-box;
+    margin: 0 auto;
+  }
+  h4 {
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+  }
+  .a {
+    width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .b, .c{
+    width:240px;
+    height: 100px;
+    line-height: 25px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient:vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .c {
+    height: 150px;
+    -webkit-line-clamp: 3;
+  }
+
+  b {
+    color: red;
+  }
+  
+  </style>
+</head>
+<body>
+  <main>
+    <h4>演示文本溢出效果的小例子</h4>
+  <p class='a'>这是 <b>单行溢出</b> 的例子： 单行显示单行显示单行显示单行显示单行显示单行显示</p>
+ 
+  <p class='b'>这是 <b>多行末尾溢出</b> 的例子： 多行显示多行显示多行显示多行显示多行aa显示多行显示多行显示多行显示多行显示多行显示多行显示
+    多行显示多行aa显示多bb行显示多行显示多行显示多行显示多a行显示多行显示多行显示多行显示多行显示多
+    行显示多行显示多行显示多行显示多行显示aa多行a显示多行显示多行显示多行显示多行显示
+  </p>
+  <p class='c'>这是 <b>多行某一行溢出</b> 的例子： 多行显示多行显示多行显示多行显示多行aa显示多行显示多行显示多行显示多行显示多行显示多行显示
+    多行显示多行aa显示多bb行显示多行显示多行显示多行显示多a行显示多行显示多行显示多行显示多行显示多
+    行显示多行显示多行显示多行显示多行显示aa多行a显示多行显示多行显示多行显示多行显示
+  </p>
+  </main> 
+</body>
+</html>
