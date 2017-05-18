@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>行高设置</title>
+  <style>
+    html, body {
+      font-size: 40px;
+      line-height: 2;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      border: 1px solid;
+    }
+    ul {
+      font-size: 60px;
+      line-height: 1;
+    }
+    li {
+      font-size: 20px;
+    }
+
+    li:nth-child(1) {
+      color: red;
+      line-height: 30px; /*页面的分辨率有关*/
+
+    }
+    li:nth-child(2) {
+      color: blue;
+      font-size: 50px;
+      line-height: 1.5; /* 只与当前元素字号大小有关 */
+
+    }
+    li:nth-child(3) {
+      color: grey;
+      font-size: 25px;
+      line-height: 150%; /*只与当前元素字号大小有关*/
+
+    }
+    li:nth-child(4) {
+      color:purple;
+      line-height: 1em;/* 1em = 当前字体字号*/
+
+    }
+    li:nth-child(5) {
+      color: green;
+      line-height: 1.5rem; /*确定只与根节点字体大小有关*/
+
+    }
+    div {
+      font-size: 120%; /*字号上百分百形式 em 形式，字号 = 120% * 父元素字号 */
+      afont-size: 1.5em;/*字号上 em 形式，字号 = 1.2 * 父元素字号 */
+    }
+  </style>
+</head>
+<body>
+  
+<a href="https://jsbin.com/xohulowito/2/edit?html,css,output">jsbin 在线测试</a>
+
+<ul>这是ul的内容30px
+  <li>01</li>
+  <li>02</li>
+  <li>03</li>
+  <li>04</li>
+  <li>05</li>
+</ul>
+  
+  
+  <div>第一层
+    <div>第二层
+      <div>第三层
+        <div>第四层
+          <div>第五层</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
