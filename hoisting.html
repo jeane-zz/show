@@ -5,6 +5,115 @@
 	<title>变量提升</title>
 </head>
 <body>
-	
+	<script type="text/javascript">
+		a(); // 直接到11行
+		var a;
+		function a() {
+		    console.log(1);
+		}
+		a = function() {
+		    console.log(2);
+		}
+		a(); // 到14行
+	</script>
+
+	<script type="text/javascript">
+		a();  // 25行
+		var a = function() {
+		    console.log(3);
+		};
+		function a() {
+		    console.log(4);
+		}
+		a(); // 22行
+	</script>
+
+	<script type="text/javascript">
+		a(); // 40行
+		var a;
+		function a() { // 直接跳过，完全不执行
+		    console.log(5);
+		}
+		a = function() {
+		    console.log(6);
+		}
+		function a() {
+		    console.log(7);
+		}
+		a(); // 37行
+	</script>
+
+	<script type="text/javascript">
+		(function(){
+		    console.log(8 +' '+a); // undefined
+		    if(false){
+		        console.log(9 +' '+a());
+		        function a(){
+		            console.log(10+' '+'true');
+		        }
+		    }
+		//   a(); // 报错
+		})();
+
+	</script>
+
+	<script type="text/javascript">
+		(function(){
+		    console.log(11 +' '+a); // undefined
+		    if(true){
+		        console.log(12 +' '+a());
+		        function a(){
+		            console.log(13+' '+'true');
+		        }
+		    }
+		    a();
+		})();
+
+	</script>
+
+	<script type="text/javascript">
+		(function(){
+			'use strict'
+		    console.log(14 +' '+a); // 受之前代码影响，会保留33 37行的定义
+		    if(true){
+		        console.log(15 +' '+a());
+		        function a(){
+		            console.log(16+' '+'true');
+		        }
+		    }
+		    a();
+		})();
+
+	</script>
+
+
+	<script type="text/javascript">
+		(function(){
+			'use strict'
+		    //console.log(17 +' '+b); // 此处即开始报错，后面不执行
+		    if(true){
+		        console.log(18 +' '+b());
+		        function b(){
+		            console.log(19+' '+'true');
+		        }
+		    }
+		    //b(); // 去掉93行的影响后，此位置报错，拿不到if内的b函数
+		})();
+
+	</script>
+
+	<script type="text/javascript">
+		var foo = 1;
+		function bar() {
+			console.log(20+' '+foo);
+		    if (!foo) {
+		        var foo = 10;
+		        console.log(22+' '+foo);
+		    }
+		    console.log(21+' '+foo);
+		}
+		bar();
+
+	</script>
 </body>
 </html>
