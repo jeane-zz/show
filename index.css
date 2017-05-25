@@ -124,21 +124,21 @@ header {
 	text-align: center;
 	line-height: 30px;
 	background: #ddd;
-	background-image: url(cover/bg.jpg);
+	background-image: url(cover/bg0.jpg);
 	background-repeat: repeat-x;
-	background-size: 150% 150%;
+	background-size: 150% 450%;
 	padding: 50px;
 	overflow: hidden;
 	margin-bottom: 12px;
-	animation: bg 60s linear infinite alternate;
+	animation: bg 80s linear infinite alternate;
 }
 
 @keyframes bg {
 	from {
-		background-position: 0 50%;
+		background-position: 0 0%;
 	}
 	to {
-		background-position: 100% 50%;
+		background-position: 100% 0%;
 	}
 }
 

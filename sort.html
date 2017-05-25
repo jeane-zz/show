@@ -1,0 +1,91 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <title>冒泡排序可视化</title>  
+        <style> 
+            #boxes{  
+                aborder:1px solid grey;  
+                width:660px;  
+                height:300px;  
+                margin-top:10px;  
+                position:relative;  
+            }  
+            .box{  
+                background:#409dd7;  
+                width:20px;  
+                line-height:30px;  
+                text-align:center;  
+                font-family:Microsoft Yahei;  
+                font-size:15px;  
+                color:white;  
+                margin:0 1px;  
+                position:absolute;  
+            }
+            section {
+                width: 700px;
+                margin: 100px auto;
+                text-align: center;
+            }  
+        </style>  
+    </head>  
+    <body>
+        <section>  
+            <h3>冒泡排序</h3>
+            <div id="boxes"></div>  
+            <script>  
+                function random(){  
+                    var numbers = [];  
+                    for (var i = 0; i < 30; i++) {  
+                        var number = Math.floor(Math.random() * 90 + 10);  
+                        numbers.push(number);  
+                        var divElement = document.createElement("div");  
+                        var parentElement = document.getElementById("boxes");  
+                        divElement.style.left = i * 20 + i * 2 + "px";  
+                        divElement.style.top = 300 - 3 * number + "px";  
+                        divElement.style.height = 3 * number + "px";  
+                        divElement.setAttribute("class","box");  
+                        parentElement.appendChild(divElement);  
+                    }  
+                    return numbers;  
+                }  
+                function sort(){  
+                    var numbers = random();  
+                    var parentElement = document.getElementById("boxes");  
+                    var i = 0, j = 0;  
+                    var time = setInterval(function() {  
+                        if (i < numbers.length) {  
+                            if (j < numbers.length - i) {  
+                                if (numbers[j] > numbers[j + 1]) {  
+                                    var temp = numbers[j];  
+                                    numbers[j] = numbers[j + 1];  
+                                    numbers[j + 1] = temp;  
+                                    parentElement.innerHTML = "";  
+                                    for (var k = 0; k < numbers.length; k++) {  
+                                        var textNode = document.createTextNode(numbers[k]);  
+                                        var divElement = document.createElement("div");  
+                                        divElement.appendChild(textNode);  
+                                        divElement.style.left = k * 20 + k * 2 + "px";  
+                                        divElement.style.top = 300 - 3 * numbers[k] + "px";  
+                                        divElement.style.height = 3 * numbers[k] + "px";  
+                                        divElement.setAttribute("class","box");  
+                                        parentElement.appendChild(divElement);  
+                                    }  
+                                }  
+                                j++;  
+                            }  
+                            else{  
+                                i++;  
+                                j = 0;  
+                            }  
+                        }  
+                        else {  
+                            clearInterval(time);   
+                            return;  
+                        }  
+                    }, 100);    
+                }  
+                sort();  
+            </script>
+        </section>  
+    </body>  
+</html>
