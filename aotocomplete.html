@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单自动填充</title>
+</head>
+<body>
+	<input type="text" class="word" placeholder="请输入想要查询的属性">
+
+	<div class="suggest"></div>
+
+	<script type="text/javascript">
+		var words = [];
+		for(var word in window) {
+			words.push(word)
+		}
+		var inputArea = document.querySelector('.word')
+		var outputArea = document.querySelector('.suggest')
+		inputArea.addEventListener('input', function () {
+			var matching = words.filter(function(word) {
+				return word.indexOf(inputArea.value) == 0
+			})
+			outputArea.textContent = ''
+
+			matching.slice(0, 20).forEach(function (word) {
+				var node = document.createElement('div')
+				node.textContent = word
+				node.addEventListener('click', function() {
+					inputArea.value = word
+					outputArea.textContent = ''
+				})
+				outputArea.appendChild(node)
+			})
+		})
+
+	</script>
+</body>
+</html>

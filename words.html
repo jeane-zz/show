@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用单词查询</title>
+	<style type="text/css">
+		.suggest {
+		    text-align: left;
+		    width: 340px;
+		    margin: 0 auto;
+		}
+		.word {
+		    width: 340px;
+		    font-size: 30px;
+		    line-height: 50px;
+		    padding-left: 20px;
+		    box-sizing: border-box;
+		}
+		section {
+		    margin: 0 auto;
+		    text-align: center;
+		    width: 600px;
+		    line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<h4>常用单词查询</h4>
+		<input type="text" class="word" placeholder="请输入想要查询的单词">
+
+		<div class="suggest">
+			<ul class="output"></ul>
+		</div>
+
+	</section>
+	<script src="words2.js"></script>
+	<script type="text/javascript">
+		var inputArea = document.querySelector('.word')
+		var outputArea = document.querySelector('.output')
+		inputArea.addEventListener('input', function () {
+			var matching = words.filter(function(word) {
+				return word.indexOf(inputArea.value) == 0
+			})
+			outputArea.textContent = ''
+
+			matching.slice(0, 20).forEach(function (word) {
+				var node = document.createElement('li')
+				node.textContent = word
+				node.addEventListener('click', function() {
+					inputArea.value = word
+					outputArea.textContent = ''
+				})
+				outputArea.appendChild(node)
+			})
+		})
+
+	</script>
+</body>
+</html>
