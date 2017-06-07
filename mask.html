@@ -9,11 +9,15 @@
 			text-align: center;
 			margin: 0 auto;
 		}
+		p {
+			text-align: left;
+			margin-top: 20px;
+		}
 		img {
 			width: 	300px;
 		}	
 		#img1 {
-			-webkit-mask-box-image: url(img/circle.svg) 50 stretch;
+			-webkit-mask: url(img/circle.svg) 55% 55%;
 		}
 		#img2 {
 			-webkit-mask: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
@@ -24,15 +28,21 @@
 		#img3:hover {
 			-webkit-mask: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
 		}
+		
 	</style>
 </head>
 <body>
 <section>
 	<h2>CSS 遮罩</h2>
+	<p>原始图像:</p>
+	<img id="img0" src="img/tag4.jpg" >
+	<p>与 -webkit-mask 属性复合： </p>
 	<img id="img1" src="img/tag4.jpg" >
+	<p>将 -webkit-mask 设置为gradient渐变: </p>
 	<img id="img2" src="img/tag4.jpg" >
+	<p>将 -webkit-mask 设置为gradient渐变，并添加hover效果: </p>
 	<img id="img3" src="img/tag4.jpg" >
-	<img id="img4" src="img/tag4.jpg" >
+
 </section>
 </body>
 </html>
