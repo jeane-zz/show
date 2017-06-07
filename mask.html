@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css 遮罩 图层蒙版</title>
+	<style type="text/css">
+		section {
+			width: 	500px;
+			text-align: center;
+			margin: 0 auto;
+		}
+		img {
+			width: 	300px;
+		}	
+		#img1 {
+			-webkit-mask-box-image: url(img/circle.svg) 50 stretch;
+		}
+		#img2 {
+			-webkit-mask: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+		}
+		#img3 {
+			-webkit-mask: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+		}
+		#img3:hover {
+			-webkit-mask: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+		}
+	</style>
+</head>
+<body>
+<section>
+	<h2>CSS 遮罩</h2>
+	<img id="img1" src="img/tag4.jpg" >
+	<img id="img2" src="img/tag4.jpg" >
+	<img id="img3" src="img/tag4.jpg" >
+	<img id="img4" src="img/tag4.jpg" >
+</section>
+</body>
+</html>
