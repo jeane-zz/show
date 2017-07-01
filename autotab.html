@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>autotab 自动切换焦点</title>
+	<style type="text/css">
+		form {
+			width: 200px;
+		}
+		input {
+			width: 30px;
+		}
+
+	</style>
+</head>
+<body>
+	<section>
+		<h3>模拟实现IP地址填写</h3>
+		<p>功能：当每个input内完成3个数字的填充后，下个input自动获取焦点</p>
+		<form>
+			<input type="text" name="ip1" id="ipText1" required maxlength="3"> - 
+			<input type="text" name="ip2" id="ipText2" required maxlength="3"> - 
+			<input type="text" name="ip3" id="ipText3" required maxlength="3"> - 
+			<input type="text" name="ip4" id="ipText4" required maxlength="3">
+		</form>
+	</section>
+
+	<script type="text/javascript">
+		(function () {
+			let textBox1 = document.querySelector('#ipText1')
+			let textBox2 = document.querySelector('#ipText2')
+			let textBox3 = document.querySelector('#ipText3')
+			let textBox4 = document.querySelector('#ipText4')
+			// console.log(textBox1)
+
+			function autoTab(event) {
+				let ev = event || window.event
+				let target = ev.target || ev.srcElement
+
+				// console.log(ev)
+				console.log(target)
+				console.log(target.value)
+				if(target.value.length == target.maxLength) {
+					let form = target.form
+					for(let i = 0, len = form.elements.length; i < len; i++) {
+						console.log(len)
+						console.log(form.elements)
+						if(form.elements[i] == target) {
+							if(form.elements[i + 1]) {
+								form.elements[i + 1].focus()
+							}
+							return
+						}
+					}
+				}	
+			}
+			textBox1.addEventListener('keyup', autoTab)
+			textBox2.addEventListener('keyup', autoTab)
+			textBox3.addEventListener('keyup', autoTab)
+			textBox4.addEventListener('keyup', autoTab)
+
+		})()
+
+	</script>
+</body>
+</html>
