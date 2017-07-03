@@ -37,14 +37,9 @@
 				let ev = event || window.event
 				let target = ev.target || ev.srcElement
 
-				// console.log(ev)
-				console.log(target)
-				console.log(target.value)
 				if(target.value.length == target.maxLength) {
 					let form = target.form
 					for(let i = 0, len = form.elements.length; i < len; i++) {
-						console.log(len)
-						console.log(form.elements)
 						if(form.elements[i] == target) {
 							if(form.elements[i + 1]) {
 								form.elements[i + 1].focus()
@@ -54,6 +49,22 @@
 					}
 				}	
 			}
+			function check(event) {
+				let ev = event || window.event
+				let target = ev.target || ev.srcElement
+				let value = target.value
+				if(isNaN(Number(value))){
+					alert('请输入数字')
+				}
+				if(Number(value) < 0 || Number(value) > 255) {
+					alert ('请输入 0 - 255 之间的数值')
+				}
+
+			}
+			textBox1.addEventListener('keyup', check)
+			textBox2.addEventListener('keyup', check)
+			textBox3.addEventListener('keyup', check)
+			textBox4.addEventListener('keyup', check)
 			textBox1.addEventListener('keyup', autoTab)
 			textBox2.addEventListener('keyup', autoTab)
 			textBox3.addEventListener('keyup', autoTab)
